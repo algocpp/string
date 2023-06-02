@@ -6,6 +6,7 @@
 
 #include <vector>
 #include <string>
+#include <assert.h>
 
 #ifndef ALGOCPP_STRING_SPLIT
 #define ALGOCPP_STRING_SPLIT
@@ -20,11 +21,12 @@ namespace algocpp
 		/// @return Sequence after splitting
 		inline std::vector<std::string> split(std::string s, std::string div)
 		{
+			assert(div != "");
 			std::vector<std::string> result;
 			std::string tmp = "";
-			for (int i = 0; i < s.size() - div.size(); i++)
+			for (int i = 0; i < s.size(); i++)
 			{
-				if (s[i] == div[0])
+				if (s.size() - i >= div.size() && s[i] == div[0])
 				{
 					bool flag = true;
 					for (int j = 0; j < div.size(); j++)
@@ -36,10 +38,11 @@ namespace algocpp
 						}
 					}
 
-					if (flag)
+					if (flag && tmp != "")
 					{
 						result.push_back(tmp);
 						tmp = "";
+						i += div.size() - 1;
 					}
 				}
 				else

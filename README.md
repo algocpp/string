@@ -1,2 +1,3 @@
-# string
-algocpp.string
+# Algocpp.String
+
+String Manipulation Library in Algo.cpp

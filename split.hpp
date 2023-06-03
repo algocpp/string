@@ -15,10 +15,6 @@ namespace algocpp
 {
 	namespace string
 	{
-		/// @brief Split a string into specific strings
-		/// @param s String to be split
-		/// @param div String to be split
-		/// @return Sequence after splitting
 		inline std::vector<std::string> split(std::string s, std::string div)
 		{
 			assert(div != "");

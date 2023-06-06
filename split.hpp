@@ -20,12 +20,12 @@ namespace algocpp
 			assert(div != "");
 			std::vector<std::string> result;
 			std::string tmp = "";
-			for (int i = 0; i < s.size(); i++)
+			for (unsigned long long i = 0; i < s.size(); i++)
 			{
 				if (s.size() - i >= div.size() && s[i] == div[0])
 				{
 					bool flag = true;
-					for (int j = 0; j < div.size(); j++)
+					for (unsigned long long j = 0; j < div.size(); j++)
 					{
 						if (s[i + j] != div[j])
 						{

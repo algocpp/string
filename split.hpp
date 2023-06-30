@@ -10,6 +10,7 @@
 #include <vector>
 #include <string>
 #include <assert.h>
+#include <algocpp/exception/blank.hpp>
 
 namespace algocpp
 {
@@ -17,7 +18,11 @@ namespace algocpp
 	{
 		inline std::vector<std::string> split(std::string s, std::string div)
 		{
-			assert(div != "");
+			if (div == "")
+			{
+				throw algocpp::exception::BlankArgumentException("It cannot be split by an empty string.");
+			}
+
 			std::vector<std::string> result;
 			std::string tmp = "";
 			for (unsigned long long i = 0; i < s.size(); i++)

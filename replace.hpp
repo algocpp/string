@@ -9,6 +9,7 @@
 
 #include <string>
 #include <assert.h>
+#include <algocpp/exception/blank.hpp>
 
 namespace algocpp
 {
@@ -16,7 +17,11 @@ namespace algocpp
 	{
 		inline std::string replace(std::string s, std::string from, std::string to, unsigned long long max = 4611686018427387897ULL)
 		{
-			assert(from != "");
+			if (from == "")
+			{
+				throw algocpp::exception::BlankArgumentException("Empty strings cannot be replaced.");
+			}
+
 			std::string ret = "";
 			unsigned long long cnt = 0;
 			for (unsigned long long i = 0; i < s.size(); i++)

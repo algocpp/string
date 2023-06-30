@@ -4,12 +4,12 @@
 // This file is part of algocpp and is copyrighted by algocpp.
 // If used, it must comply with the MIT License.
 
+#ifndef ALGOCPP_STRING_SPLIT
+#define ALGOCPP_STRING_SPLIT
+
 #include <vector>
 #include <string>
 #include <assert.h>
-
-#ifndef ALGOCPP_STRING_SPLIT
-#define ALGOCPP_STRING_SPLIT
 
 namespace algocpp
 {

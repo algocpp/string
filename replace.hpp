@@ -4,11 +4,11 @@
 // This file is part of algocpp and is copyrighted by algocpp.
 // If used, it must comply with the MIT License.
 
-#include <string>
-#include <assert.h>
-
 #ifndef ALGOCPP_STRING_REPLACE
 #define ALGOCPP_STRING_REPLACE
+
+#include <string>
+#include <assert.h>
 
 namespace algocpp
 {

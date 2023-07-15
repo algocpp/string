@@ -20,7 +20,7 @@ namespace algocpp
 		{
 			if (div == "")
 			{
-				throw algocpp::exception::BlankArgumentException("It cannot be split by an empty string.");
+				throw algocpp::exception::blank_argument("It cannot be split by an empty string.");
 			}
 
 			std::vector<std::string> result;

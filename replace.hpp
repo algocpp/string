@@ -19,7 +19,7 @@ namespace algocpp
 		{
 			if (from == "")
 			{
-				throw algocpp::exception::BlankArgumentException("Empty strings cannot be replaced.");
+				throw algocpp::exception::blank_argument("Empty strings cannot be replaced.");
 			}
 
 			std::string ret = "";

@@ -14,7 +14,7 @@ namespace algocpp
 {
 	namespace string
 	{
-		inline bool is_palind(std::string s)
+		inline bool is_palind(std::string s) noexcept
 		{
 			for (unsigned long long i = 0; i < (unsigned long long)(s.size() / 2); i++)
 			{

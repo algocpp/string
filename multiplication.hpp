@@ -9,7 +9,7 @@
 
 #include <string>
 
-inline std::string operator*(std::string const &s, unsigned long long x)
+inline std::string operator*(std::string const &s, unsigned long long x) noexcept
 {
 	std::string ans = "";
 	while (x--)
@@ -20,7 +20,7 @@ inline std::string operator*(std::string const &s, unsigned long long x)
 	return ans;
 }
 
-inline std::string operator*=(std::string &s, unsigned long long x)
+inline std::string operator*=(std::string &s, unsigned long long x) noexcept
 {
 	s = s * x;
 	return s;

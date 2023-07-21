@@ -9,12 +9,13 @@
 
 #include <string>
 #include <locale>
+#include <algocpp/string/wconvert.hpp>
 
 namespace algocpp
 {
 	namespace string
 	{
-		inline bool is_palind(std::string s) noexcept
+		inline bool is_palind(std::u32string s) noexcept
 		{
 			for (unsigned long long i = 0; i < (unsigned long long)(s.size() / 2); i++)
 			{
@@ -26,6 +27,28 @@ namespace algocpp
 			return true;
 		}
 
+		inline bool is_palind(std::string s) noexcept
+		{
+			return is_palind(algocpp::string::utf32conv.from_bytes(s));
+		}
+
+		inline bool is_palind(std::u16string s) noexcept
+		{
+			return is_palind(algocpp::string::utf16conv.to_bytes(s));
+		}
+
+		inline bool is_palind(std::wstring s) noexcept
+		{
+			return is_palind(algocpp::string::wstrconv.to_bytes(s));
+		}
+
+// C++20
+#if __cplusplus >= 202002LL
+		inline bool is_palind(std::u8string s) noexcept
+		{
+			return is_palind(std::string(s.begin(), s.end()));
+		}
+#endif
 	}
 }
 

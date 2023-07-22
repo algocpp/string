@@ -8,7 +8,6 @@
 #define ALGOCPP_STRING_REPLACE
 
 #include <string>
-#include <assert.h>
 #include <algocpp/exception/blank.hpp>
 
 namespace algocpp

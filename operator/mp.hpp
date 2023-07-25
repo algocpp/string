@@ -1,11 +1,11 @@
 
-// algocpp/string/multiplication.hpp
+// algocpp/string/operator/mp.hpp
 //
 // This file is part of algocpp and is copyrighted by algocpp.
 // If used, it must comply with the MIT License.
 
-#ifndef ALGOCPP_STRING_MULTIPLIATION
-#define ALGOCPP_STRING_MULTIPLIATION
+#ifndef ALGOCPP_STRING_OPERATOR_MP
+#define ALGOCPP_STRING_OPERATOR_MP
 
 #include <string>
 

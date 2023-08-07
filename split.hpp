@@ -28,7 +28,7 @@ namespace algocpp
 				{
 					std::vector<Tp1> result(s.size());
 
-					for (int i = 0; i < s.size(); i++)
+					for (unsigned long long i = 0; i < s.size(); i++)
 					{
 						result[i] = Tp1{s[i]};
 					}

@@ -1,4 +1,4 @@
-
+﻿
 // algocpp/string/wconvert.hpp
 //
 // This file is part of algocpp and is copyrighted by algocpp.

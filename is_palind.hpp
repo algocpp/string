@@ -15,38 +15,47 @@ namespace algocpp
 {
 	namespace string
 	{
+		namespace base
+		{
+			template <typename T>
+			inline bool base_is_palind(T s) noexcept
+			{
+				for (unsigned long long i = 0; i < (unsigned long long)(s.size() / 2); i++)
+				{
+					if (s[i] != s[s.size() - i - 1])
+					{
+						return false;
+					}
+				}
+				return true;
+			}
+		}
+
 		inline bool is_palind(std::u32string s) noexcept
 		{
-			for (unsigned long long i = 0; i < (unsigned long long)(s.size() / 2); i++)
-			{
-				if (s[i] != s[s.size() - i - 1])
-				{
-					return false;
-				}
-			}
-			return true;
+			return base::base_is_palind(s);
 		}
 
 		inline bool is_palind(std::string s) noexcept
 		{
-			return is_palind(algocpp::string::utf32conv.from_bytes(s));
+			return base::base_is_palind(s);
 		}
 
 		inline bool is_palind(std::u16string s) noexcept
 		{
-			return is_palind(algocpp::string::utf16conv.to_bytes(s));
+			return base::base_is_palind(s);
 		}
 
 		inline bool is_palind(std::wstring s) noexcept
 		{
-			return is_palind(algocpp::string::wstrconv.to_bytes(s));
+			return base::base_is_palind(s);
 		}
 
 // C++20
 #if __cplusplus >= 202002LL
 		inline bool is_palind(std::u8string s) noexcept
 		{
-			return is_palind(std::string(s.begin(), s.end()));
+			return base::base_is_palind(s);
 		}
 #endif
 	}

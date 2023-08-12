@@ -14,43 +14,74 @@ namespace algocpp
 {
 	namespace string
 	{
-		inline std::string replace(std::string s, std::string from, std::string to, unsigned long long max = 4611686018427387897ULL)
+		namespace base
 		{
-			if (from == "")
+			template <typename T>
+			inline T base_replace(T s, T from, T to, unsigned long long max = SIZE_MAX)
 			{
-				throw algocpp::exception::blank_argument("Empty strings cannot be replaced.");
-			}
-
-			std::string ret = "";
-			unsigned long long cnt = 0;
-			for (unsigned long long i = 0; i < s.size(); i++)
-			{
-				if (s.size() - i >= from.size() && s[i] == from[0] && cnt < max)
+				if (from == T{})
 				{
-					bool flag = true;
-					for (unsigned long long j = 0; j < from.size(); j++)
-					{
-						if (s[i + j] != from[j])
-						{
-							flag = false;
-							break;
-						}
-					}
+					throw algocpp::exception::blank_argument("Empty strings cannot be replaced.");
+				}
 
-					if (flag)
+				T ret = T{};
+				unsigned long long cnt = 0;
+				for (unsigned long long i = 0; i < s.size(); i++)
+				{
+					if (s.size() - i >= from.size() && s[i] == from[0] && cnt < max)
 					{
-						ret += to;
-						i += from.size() - 1;
-						cnt++;
+						bool flag = true;
+						for (unsigned long long j = 0; j < (unsigned long long)(from.size()); j++)
+						{
+							if (s[i + j] != from[j])
+							{
+								flag = false;
+								break;
+							}
+						}
+
+						if (flag)
+						{
+							ret += to;
+							i += from.size() - 1;
+							cnt++;
+						}
+						else
+							ret += s[i];
 					}
 					else
 						ret += s[i];
 				}
-				else
-					ret += s[i];
-			}
 
-			return ret;
+				return ret;
+			}
+		}
+
+		inline std::string replace(std::string s, std::string from, std::string to, unsigned long long max = SIZE_MAX)
+		{
+			return base::base_replace(s, from, to, max);
+		}
+
+		inline std::u32string replace(std::u32string s, std::u32string from, std::u32string to, unsigned long long max = SIZE_MAX)
+		{
+			return base::base_replace(s, from, to, max);
+		}
+
+		inline std::u16string replace(std::u16string s, std::u16string from, std::u16string to, unsigned long long max = SIZE_MAX)
+		{
+			return base::base_replace(s, from, to, max);
+		}
+
+#if __cplusplus >= 202002L
+		inline std::u8string replace(std::u8string s, std::u8string from, std::u8string to, unsigned long long max = SIZE_MAX)
+		{
+			return base::base_replace(s, from, to, max);
+		}
+#endif
+
+		inline std::wstring replace(std::wstring s, std::wstring from, std::wstring to, unsigned long long max = SIZE_MAX)
+		{
+			return base::base_replace(s, from, to, max);
 		}
 	}
 }

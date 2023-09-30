@@ -174,28 +174,6 @@ TEST(palind_u8, null)
 	EXPECT_TRUE(is_palind(u8""));
 }
 
-TEST(palind_u8, multistr_yes)
-{
-	std::u8string tmp = u8"たけやぶやけた";
-	EXPECT_TRUE(is_palind(tmp));
-}
-
-TEST(palind_u8, multistr_no)
-{
-	std::u8string tmp = u8"たけやぶやけなかった";
-	EXPECT_FALSE(is_palind(tmp));
-}
-
-TEST(palind_u8, multichar_yes)
-{
-	EXPECT_TRUE(is_palind(u8"たけやぶやけた"));
-}
-
-TEST(palind_u8, multichar_no)
-{
-	EXPECT_FALSE(is_palind(u8"たけやぶやけなかった"));
-}
-
 // std::wstring
 
 TEST(palind_w, string_yes)

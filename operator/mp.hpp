@@ -9,6 +9,8 @@
 
 #include <string>
 
+// operator *
+
 inline std::string operator*(std::string const &s, unsigned long long x) noexcept
 {
 	std::string ans = "";
@@ -19,6 +21,8 @@ inline std::string operator*(std::string const &s, unsigned long long x) noexcep
 
 	return ans;
 }
+
+// operator *=
 
 inline std::string operator*=(std::string &s, unsigned long long x) noexcept
 {
